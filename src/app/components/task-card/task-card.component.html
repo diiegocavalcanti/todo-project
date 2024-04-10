@@ -1,0 +1,38 @@
+<div class="surface-card shadow-2 p-3 border-round mb-3 cursor-pointer"  >
+    <div class="grid">
+        <div class="col">
+            <div class="text-900 font-medium text-xl mb-2">{{task.title}}</div>
+            <span class="block text-500 text-sm mb-3">{{task.description}}</span>
+        </div>
+        <div class="col-auto">
+            <div *ngIf="task.status.name == 'pending'" class="bg-orange-100 border-circle flex align-items-center justify-content-center" style="width:2rem;height:2rem">
+                <i class="pi pi-clock text-orange-500 text-xl"></i>
+            </div>
+
+            <div *ngIf="task.status.name == 'progress'" class="bg-blue-100 border-circle flex align-items-center justify-content-center" style="width:2rem;height:2rem">
+                <i class="pi pi-play text-blue-500 text-xl"></i>
+            </div>
+
+            <div *ngIf="task.status.name == 'finish'" class="bg-green-100 border-circle flex align-items-center justify-content-center" style="width:2rem;height:2rem">
+                <i class="pi pi-check-circle text-green-500 text-xl"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid">
+        <div class="col-12">
+            <div [ngClass]="{'bg-orange-100': task.status.name == 'pending', 'bg-blue-100': task.status.name == 'progress', 'bg-green-100': task.status.name == 'finish'}"  class=" border-round inline-block">
+                <div [ngClass]="{'text-orange-500': task.status.name == 'pending', 'text-blue-500': task.status.name == 'progress', 'text-green-500': task.status.name == 'finish'}"  class=" text-xs inline-block py-1 px-2">{{task.status.alias}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="col">
+            <p class="bg-surface-800 text-xs text-500 mt-0 mb-0">Criação <span class="text-500 font-semibold">{{formatDate(task.createDate)}}</span></p>
+        </div>
+
+        <div class="col">
+            <p class="bg-surface-800 text-xs text-500 mt-0 mb-0">Entrega: <span class="text-500 font-semibold">{{formatDate(task.endDate)}}</span></p>
+        </div>
+    </div>
+</div>

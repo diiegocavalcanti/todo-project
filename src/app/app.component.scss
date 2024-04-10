@@ -1,0 +1,15 @@
+
+.drop-column {
+    transition: .2s;
+    transition: background-color .2s;
+
+    &.p-draggable-enter {
+        border-color: var(--primary-color) !important; 
+        background-color: white !important;
+    }
+}
+.p-draggable-enter {
+    border-color: var(--primary-color) !important; 
+    background-color: white !important;
+    transition: .2s;
+}
